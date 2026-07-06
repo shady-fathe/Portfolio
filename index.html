@@ -362,8 +362,8 @@ layout and user-friendly interface.
           </div>
 
           <div class="project-buttons">
-            <a href="https://shady-fathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">Live Demo</a>
-            <a href="https://github.com/shady-fathe/Accessories-store" class="btn btn-outline">GitHub</a>
+            <a href="https://shadyfathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">Live Demo</a>
+            <a href="https://github.com/Shadyfathe/Accessories-store" class="btn btn-outline">GitHub</a>
           </div>
 
         </div>
@@ -541,27 +541,27 @@ A professional online store for the (Brush & Blusher) brand, designed to showcas
 
       </div>
 
-      <form class="contact-form glass">
+<form id="my-contact-form" class="contact-form glass">
 
-        <div class="input-group">
-          <input type="text" placeholder="Your Name">
-        </div>
+  <div class="input-group">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
 
-        <div class="input-group">
-          <input type="email" placeholder="Your Email">
-        </div>
+  <div class="input-group">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
 
-        <div class="input-group">
-          <textarea placeholder="Your Message"></textarea>
-        </div>
+  <div class="input-group">
+    <textarea name="message" placeholder="Your Message" required></textarea>
+  </div>
 
-        <button class="btn btn-primary">
-          Send Message
-        </button>
+  <button type="submit" class="btn btn-primary">
+    Send Message
+  </button>
 
-      </form>
+  <p id="form-status" style="margin-top: 15px; display: none;"></p>
 
-    </div>
+</form>
 
   </section>
 
