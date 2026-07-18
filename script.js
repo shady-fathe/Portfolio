@@ -51,8 +51,8 @@ btnup.style.pointerEvents = 'auto';
 }}
 
 // function change language
-let languages = ["Arabic", "English"];
-let language = 1;
+let languages = ["English","Arabic"];
+let language = 0;
 btnlanguage.addEventListener("click",()=>{
 language += 1; 
   if(language == 2){
@@ -68,7 +68,7 @@ btnlanguage.textContent = "EN"
 btnlanguage.addEventListener("click",()=>{
 
 
-if(language == 0){ 
+if(language == 1){ 
   // AR
     nav.style.direction = "rtl";
     SeOne.style.direction = "rtl";
