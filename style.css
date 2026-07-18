@@ -5,6 +5,56 @@
   scroll-behavior: smooth;
 }
 
+/* ==========================================================================
+   1. Root Variables (التحكم الكامل في السيمز)
+   ========================================================================== */
+:root {
+  /* Fonts */
+  --font-en: system-ui, -apple-system, sans-serif;
+
+  /* Themes Colors - Dark (الأساسي) */
+  --bg: #070b14;
+  --bg2: #0d1324;
+  --nav-bg: rgba(5, 8, 16, 0.55);
+  --glass: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  
+  --text: #ffffff;
+  --text-pure: #ffffff; /* للأزرار والنصوص التي يجب أن تظل فاتحة في الثيمين */
+  --muted: #b7bfd4;
+  --nav-link: #ffffff;
+  
+  /* Accents */
+  --blue: #3b82f6;
+  --cyan: #06b6d4;
+  --purple: #8b5cf6;
+  --accent-glow-1: rgba(139, 92, 246, 0.33); /* #8b5cf655 */
+  --accent-glow-2: rgba(6, 182, 212, 0.33); /* #06b6d455 */
+  
+  /* Interactive Elements */
+  --btn-outline-bg: rgba(255, 255, 255, 0.05);
+  --btn-outline-hover: rgba(255, 255, 255, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --loop-icon: rgb(133, 133, 133);
+
+  --gradient: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Light Theme Variables */
+
+
+/* ==========================================================================
+   2. Global Styles & Animations
+   ========================================================================== */
+body {
+  font-family: var(--font-en);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
 .animate {
   opacity: 0;
   transform: translateY(50px);
@@ -15,8 +65,35 @@
   opacity: 1;
   transform: translateY(0);
 }
-/* floot btns */
 
+/* Glowing Backgrounds */
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow-1), transparent 70%);
+  top: -200px;
+  right: -200px;
+  z-index: -1;
+  filter: blur(40px);
+  transition: background 0.4s ease;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--accent-glow-2), transparent 70%);
+  bottom: -200px;
+  left: -200px;
+  z-index: -1;
+  filter: blur(40px);
+  transition: background 0.4s ease;
+}
+
+/* Float Buttons */
 .btn-floot {
   width: 50px;
   height: 50px;
@@ -27,87 +104,46 @@
   position: fixed;
   z-index: 999;
   transition: 0.5s ease-in-out;
+  opacity: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  cursor: pointer;
 }
+
 .btn-up {
   bottom: 10px;
   right: 10px;
   opacity: 0;
+  pointer-events: none;
 }
+
 .btn-setting {
   bottom: 10px;
   right: 10px;
 }
+
 .btn-language {
-  bottom: 125px;
+  bottom: 65px;
   right: 10px;
   opacity: 0;
+  pointer-events: none;
 }
 
-/* colors */
-:root {
-  --bg: #070b14;
-  --bg2: #0d1324;
-  --glass: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.12);
-
-  --text: #ffffff;
-  --muted: #b7bfd4;
-
-  --blue: #3b82f6;
-  --cyan: #06b6d4;
-  --purple: #8b5cf6;
-
-  --gradient: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
-
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #8b5cf655, transparent 70%);
-  top: -200px;
-  right: -200px;
-  z-index: -1;
-  filter: blur(40px);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #06b6d455, transparent 70%);
-  bottom: -200px;
-  left: -200px;
-  z-index: -1;
-  filter: blur(40px);
-}
-/* sections */
+/* Sections Structure */
 section {
   padding: 110px 8%;
   position: relative;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   line-height: 1.2;
 }
 
 p {
   color: var(--muted);
   line-height: 1.8;
+  transition: color 0.4s ease;
 }
 
 .section-title {
@@ -130,10 +166,12 @@ p {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--shadow);
+  transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* NAVBAR */
-
+/* ==========================================================================
+   3. Navigation Bar
+   ========================================================================== */
 nav {
   position: fixed;
   width: 100%;
@@ -144,9 +182,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(5, 8, 16, 0.55);
+  background: var(--nav-bg);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s ease, border 0.4s ease;
 }
 
 .logo {
@@ -155,6 +195,7 @@ nav {
   background: var(--gradient);
   -webkit-background-clip: text;
   color: transparent;
+  background-clip: text;
 }
 
 nav ul {
@@ -165,18 +206,19 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: white;
+  color: var(--nav-link);
   font-weight: 500;
   transition: 0.3s;
 }
 
 nav ul li a:hover {
-  color: #8b5cf6;
+  color: var(--purple);
 }
 
-/* HERO */
-
-.hero {
+/* ==========================================================================
+   4. Hero Section (Section 1)
+   ========================================================================== */
+.se-1 {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -184,11 +226,11 @@ nav ul li a:hover {
   gap: 70px;
 }
 
-.hero-content {
+.se-1-content {
   flex: 1;
 }
 
-.hero-content h1 {
+.se-1-content h1 {
   font-size: 72px;
   font-weight: 900;
   margin-bottom: 20px;
@@ -199,28 +241,31 @@ nav ul li a:hover {
   background: var(--gradient);
   -webkit-background-clip: text;
   color: transparent;
+  background-clip: text;
 }
 
-.hero-content h3 {
+.se-1-content h3 {
   font-size: 26px;
-  color: #d6dcff;
+  color: var(--blue); /* تم ربطها بالمتغير للحفاظ على التناسق وتجنب اللون الثابت */
   margin-bottom: 25px;
   font-weight: 600;
+  transition: color 0.4s ease;
 }
 
-.hero-content p {
+.se-1-content p {
   max-width: 650px;
   margin-bottom: 35px;
   font-size: 17px;
 }
 
-.hero-buttons {
+.se-1-buttons {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
+/* Buttons System */
 .btn {
   padding: 16px 32px;
   border-radius: 16px;
@@ -237,8 +282,8 @@ nav ul li a:hover {
 
 .btn-primary {
   background: var(--gradient);
-  color: white;
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
+  color: var(--text-pure);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
 }
 
 .btn-primary:hover {
@@ -246,15 +291,16 @@ nav ul li a:hover {
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--btn-outline-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--btn-outline-hover);
 }
-/* btns socials */
+
+/* Social Icons */
 .socials {
   display: flex;
   gap: 20px;
@@ -268,7 +314,9 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: white;
+  color: var(--text);
+  background: var(--glass);
+  border: 1px solid var(--border);
   font-size: 20px;
   transition: 0.4s;
 }
@@ -276,32 +324,35 @@ nav ul li a:hover {
 .socials a:hover {
   transform: translateY(-5px);
   background: var(--gradient);
+  color: var(--text-pure);
+  border-color: transparent;
 }
 
-.hero-image {
+.se-1-image {
   flex: 1;
   position: relative;
 }
 
-.hero-card {
+.se-1-card {
   padding: 30px;
   border-radius: 30px;
   overflow: hidden;
   position: relative;
 }
 
-.hero-card img {
+.se-1-card img {
   width: 100%;
   border-radius: 20px;
   object-fit: cover;
 }
 
+/* Floating Decorative Elements */
 .floating {
   position: absolute;
   border-radius: 50%;
   background: var(--gradient);
   filter: blur(50px);
-  opacity: 0.35;
+  opacity: 0.25;
   animation: float 6s infinite ease-in-out;
 }
 
@@ -321,19 +372,14 @@ nav ul li a:hover {
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
 }
 
-/* ABOUT */
-
+/* ==========================================================================
+   5. About Me Section
+   ========================================================================== */
 .about-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -345,15 +391,18 @@ nav ul li a:hover {
   padding: 40px;
   border-radius: 30px;
 }
+
 .about-d-2 {
   width: 100%;
   height: auto;
   display: flex;
   background: var(--glass);
+  border: 1px solid var(--border);
   border-radius: 30px;
   padding: 40px;
   gap: 30px;
 }
+
 .about-d-circles {
   width: 60px;
   height: auto;
@@ -362,6 +411,7 @@ nav ul li a:hover {
   justify-content: space-around;
   gap: 15px;
 }
+
 .outcircle {
   width: 60px;
   height: 60px;
@@ -370,6 +420,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--text-pure);
 }
 
 .circle {
@@ -379,7 +430,6 @@ nav ul li a:hover {
   display: contents;
 }
 
-
 .about-d-2-texts {
   width: 80%;
   height: 100%;
@@ -387,17 +437,22 @@ nav ul li a:hover {
   flex-direction: column;
   gap: 20px;
 }
+
 .about-d-2-text {
   border-radius: 15px;
   padding: 13px;
-}
-.about-d-2-text span{
-background: var(--gradient);
--webkit-background-clip:text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+  background: var(--btn-outline-bg);
+  border: 1px solid var(--border);
 }
 
+.about-d-2-text span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Experience Box Setup */
 .about-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -409,19 +464,22 @@ background-clip: text;
   padding: 20px;
   border-radius: 20px;
   text-align: center;
+  background: var(--btn-outline-bg);
+  border: 1px solid var(--border);
 }
 
 .info-box h3 {
   font-size: 30px;
   margin-bottom: 10px;
   background: var(--gradient);
--webkit-background-clip:text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* SKILLS */
-
+/* ==========================================================================
+   6. Skills Section
+   ========================================================================== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -447,7 +505,7 @@ background-clip: text;
 .progress {
   width: 100%;
   height: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--btn-outline-hover);
   border-radius: 50px;
   overflow: hidden;
 }
@@ -459,8 +517,9 @@ background-clip: text;
   border-radius: 50px;
 }
 
-/* PROJECTS */
-
+/* ==========================================================================
+   7. Featured Projects Section
+   ========================================================================== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -471,11 +530,13 @@ background-clip: text;
   border-radius: 30px;
   overflow: hidden;
   transition: 0.4s;
+  position: relative;
 }
 
 .project-card:hover {
   transform: translateY(-10px);
 }
+
 .working {
   width: 100%;
   height: 220px;
@@ -485,47 +546,46 @@ background-clip: text;
   align-items: center;
   position: absolute;
   top: 0;
+  z-index: 2;
 }
+
 .working p {
   font-size: 25px;
+  color: var(--text-pure); /* لضمان وضوحه فوق البلور */
+  font-weight: 700;
 }
+
 .loop {
   animation: loop infinite 3.5s ease;
-  color: rgb(133, 133, 133);
+  color: var(--loop-icon);
   font-size: 65px;
   margin: 15px;
+  transition: color 0.4s ease;
 }
+
 @keyframes loop {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(90deg); }
+  50%  { transform: rotate(180deg); }
+  75%  { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .project-image {
   height: 220px;
+  overflow: hidden;
 }
 
-.project-image img  {
+.project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.blur{
-  filter: blur(15px);
 
+.blur {
+  filter: blur(15px);
 }
+
 .project-content {
   padding: 30px;
 }
@@ -540,7 +600,7 @@ background-clip: text;
 .tag {
   padding: 8px 14px;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--btn-outline-hover);
   font-size: 13px;
 }
 
@@ -549,8 +609,9 @@ background-clip: text;
   gap: 15px;
 }
 
-/* TIMELINE */
-
+/* ==========================================================================
+   8. Timeline Section
+   ========================================================================== */
 .timeline {
   position: relative;
   max-width: 900px;
@@ -601,8 +662,9 @@ background-clip: text;
   left: -11px;
 }
 
-/* STATS */
-
+/* ==========================================================================
+   9. Statistics Section
+   ========================================================================== */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -621,10 +683,12 @@ background-clip: text;
   background: var(--gradient);
   -webkit-background-clip: text;
   color: transparent;
+  background-clip: text;
 }
 
-/* CONTACT */
-
+/* ==========================================================================
+   10. Contact Section
+   ========================================================================== */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -650,7 +714,9 @@ background-clip: text;
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--btn-outline-hover);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .contact-form {
@@ -669,10 +735,17 @@ background-clip: text;
   border: none;
   outline: none;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.06);
-  color: white;
+  background: var(--input-bg);
+  color: var(--text);
   font-size: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
 }
 
 textarea {
@@ -680,16 +753,19 @@ textarea {
   resize: none;
 }
 
-/* FOOTER */
-
+/* ==========================================================================
+   11. Footer Area
+   ========================================================================== */
 footer {
   padding: 40px 8%;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+  background: var(--bg);
+  transition: border 0.4s ease, background 0.4s ease;
 }
 
 footer ul {
@@ -701,17 +777,23 @@ footer ul {
 footer ul li a {
   color: var(--muted);
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-/* RESPONSIVE */
+footer ul li a:hover {
+  color: var(--blue);
+}
 
+/* ==========================================================================
+   12. Responsive Design Mediaboxes
+   ========================================================================== */
 @media (max-width: 1100px) {
-  .hero {
+  .se-1 {
     flex-direction: column;
     text-align: center;
   }
 
-  .hero-buttons,
+  .se-1-buttons,
   .socials {
     justify-content: center;
   }
@@ -742,7 +824,7 @@ footer ul li a {
     display: none;
   }
 
-  .hero-content h1 {
+  .se-1-content h1 {
     font-size: 52px;
   }
 
