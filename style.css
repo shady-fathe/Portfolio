@@ -20,7 +20,7 @@
   --border: rgba(255, 255, 255, 0.12);
   
   --text: #ffffff;
-  --text-pure: #ffffff; /* للأزرار والنصوص التي يجب أن تظل فاتحة في الثيمين */
+  --text-pure: #ffffff;
   --muted: #b7bfd4;
   --nav-link: #ffffff;
   
@@ -130,6 +130,7 @@ body::after {
   pointer-events: none;
 }
 
+
 /* Sections Structure */
 section {
   padding: 110px 8%;
@@ -188,6 +189,10 @@ nav {
   border-bottom: 1px solid var(--border);
   transition: background 0.4s ease, border 0.4s ease;
 }
+.navactive{
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .logo {
   font-size: 28px;
@@ -214,7 +219,10 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--purple);
 }
-
+.menu-btn{
+  font-size: 25px;
+display: none;
+}
 /* ==========================================================================
    4. Hero Section (Section 1)
    ========================================================================== */
@@ -589,7 +597,6 @@ nav ul li a:hover {
 .project-content {
   padding: 30px;
 }
-
 .tags {
   display: flex;
   gap: 10px;
@@ -820,22 +827,48 @@ footer ul li a:hover {
 }
 
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
-  }
 
+  .menu-btn{
+display: block;
+}
+nav ul{
+      position: absolute;
+    top: 77px;
+    right: 0;
+    width: 100%;
+justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    transition: ease-in-out 0.5s;
+background: var(--nav-bg);
+ opacity: 0;
+ pointer-events: none;
+}
   .se-1-content h1 {
     font-size: 52px;
   }
-
   .section-title {
     font-size: 34px;
   }
+  .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 35px;
+}
+
 
   .about-info {
     grid-template-columns: 1fr;
   }
 
+.contact-container {
+ grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+.contact-info {
+  padding: 30px;
+  border-radius: 30px;
+}
   footer {
     flex-direction: column;
     text-align: center;
