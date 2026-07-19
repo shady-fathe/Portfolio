@@ -1,22 +1,25 @@
-
-let btnup = document.querySelector('.btn-up')
-let btnsetting = document.querySelector('.btn-setting')
-let btnlanguage = document.querySelector('.btn-language')
-let btnprojects = document.getElementById('btnprojects');
 const form = document.getElementById("my-contact-form");
 const status = document.getElementById("form-status");
-let nav = document.querySelector("nav")
-let SeOne = document.querySelector(".se-1")
-let seOne = document.querySelector(".se-1-content")
-let seTwo = document.querySelector(".se-2")
-let seSkillsH2 = document.querySelector("#Skills h2")
-let seSkillsP = document.querySelector("#Skills p")
-let seProjects = document.querySelector("#projects")
-let seTimeline = document.querySelector("#Timeline")
-let TimelineItem = document.querySelectorAll(".timeline-item")
-let seSTATS = document.querySelector(".section-STATS")
-let secontact = document.querySelector("#contact")
-let footer = document.querySelector("footer")
+let btnup = document.querySelector(".btn-up");
+let btnsetting = document.querySelector(".btn-setting");
+let btnlanguage = document.querySelector(".btn-language");
+let btnprojects = document.getElementById("btnprojects");
+let nav = document.querySelector("nav");
+let logo = document.querySelectorAll(".logo");
+let headerText = document.querySelectorAll(".header-a");
+let navUl = document.querySelector("nav ul");
+let menubtn = document.querySelector(".menu-btn");
+let SeOne = document.querySelector(".se-1");
+let seOne = document.querySelector(".se-1-content");
+let seTwo = document.querySelector(".se-2");
+let seSkillsH2 = document.querySelector("#Skills h2");
+let seSkillsP = document.querySelector("#Skills p");
+let seProjects = document.querySelector("#projects");
+let seTimeline = document.querySelector("#Timeline");
+let TimelineItem = document.querySelectorAll(".timeline-item");
+let seSTATS = document.querySelector(".section-STATS");
+let secontact = document.querySelector("#contact");
+let footer = document.querySelector("footer");
 // function to add calss visible to Elements
 let observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -27,74 +30,82 @@ let observer = new IntersectionObserver((entries) => {
 });
 document.querySelectorAll(".animate").forEach((el) => observer.observe(el));
 
-// function to scroll to top
-btnup.onclick = ()=>{
-window.scrollTo({
-top: 0,
-behavior: "smooth" 
-});
+// function menu button
 
+// menubtn.addEventListener("click" , ()=>{
+// navUl.classList.toggle("navactive")
+// console.log("click")
+// })
+
+function Fbtnheader() {
+  navUl.classList.toggle("navactive");
 }
-// function to show && hide btnup
-onscroll = ()=>{
-if(scrollY >= 100){
-btnlanguage.style.bottom = "125px"
-btnsetting.style.bottom = '70px';
-btnup.style.opacity = '1';
-btnup.style.pointerEvents = 'auto';
 
-}else{
-  btnlanguage.style.bottom = "65px"
-  btnsetting.style.bottom = '10px';
-  btnup.style.opacity = '0';
-  btnup.style.pointerEvents = 'none';
-}}
+// function to scroll to top
+btnup.onclick = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+// function to show && hide btnup
+onscroll = () => {
+  if (scrollY >= 100) {
+    btnlanguage.style.bottom = "125px";
+    btnsetting.style.bottom = "70px";
+    btnup.style.opacity = "1";
+    btnup.style.pointerEvents = "auto";
+  } else {
+    btnlanguage.style.bottom = "65px";
+    btnsetting.style.bottom = "10px";
+    btnup.style.opacity = "0";
+    btnup.style.pointerEvents = "none";
+  }
+};
 
 // function change language
-let languages = ["English","Arabic"];
+let languages = ["English", "Arabic"];
 let language = 0;
-btnlanguage.addEventListener("click",()=>{
-language += 1; 
-  if(language == 2){
-language = 0;
+btnlanguage.addEventListener("click", () => {
+  language += 1;
+
+  if (language == 2) {
+    language = 0;
   }
-if(language == 1){
-btnlanguage.textContent = "EN"
-}else{
-  btnlanguage.textContent = "AR"
-}
-})
-// function change language To AR
-btnlanguage.addEventListener("click",()=>{
+  if (language == 1) {
+    btnlanguage.textContent = "EN";
+  } else {
+    btnlanguage.textContent = "AR";
+  }
 
-
-if(language == 1){ 
-  // AR
+  // function change language To AR
+});
+btnlanguage.addEventListener("click", () => {
+  if (language == 1) {
+    // AR
     nav.style.direction = "rtl";
     SeOne.style.direction = "rtl";
-    seOne.style.direction = "rtl"
-    seTwo.style.direction = "rtl"
-    seProjects.style.direction = "rtl"
+    seOne.style.direction = "rtl";
+    seTwo.style.direction = "rtl";
+    seProjects.style.direction = "rtl";
     // TimelineItem.style.textalign = "right";
-    seSTATS.style.direction = "rtl"
-    secontact.style.direction = "rtl"
-    footer.style.direction = "rtl"
+    seSTATS.style.direction = "rtl";
+    secontact.style.direction = "rtl";
+    footer.style.direction = "rtl";
 
+    // header
+    logo.forEach((e) => {
+      e.textContent = "معرض ألاعمال.";
+    });
+    headerText.forEach(() => {
+      headerText[0].textContent = "المهارات";
+      headerText[1].textContent = "المشاريع";
+      headerText[2].textContent = "نبذه عني";
+      headerText[3].textContent = "تواصل";
+    });
 
-        // header
-    nav.innerHTML = ` 
-    
-    <div class="logo">معرض ألاعمال.</div>
-    <ul>
-    <li><a href="#Skills" class="header-a">المهارات</a></li>
-    <li><a href="#projects" class="header-a">المشاريع</a></li>
-    <li><a href="#Timeline" class="header-a">نبذه عني</a></li>
-    <li><a href="#contact" class="header-a">تواصل</a></li>
-    </ul>
-    
-    `;
-    // section one 
-seOne.innerHTML = `
+    // section one
+    seOne.innerHTML = `
     <div class="se-1-content">
 
       <h1>
@@ -141,9 +152,9 @@ seOne.innerHTML = `
         </a>
       </div>
     </div>
-`
-// section Two  About
-seTwo.innerHTML = `
+`;
+    // section Two  About
+    seTwo.innerHTML = `
     <h2 class="section-title">نبذه عني</h2>
     <p class="section-subtitle">
 مطور شغوف يركز على إنشاء منتجات رقمية متميزة باستخدام 
@@ -210,12 +221,13 @@ seTwo.innerHTML = `
         </div>
       </div>
     </div>
-`
-    // section Skills 
-seSkillsH2.textContent = " المهارات والتقنيات "
-seSkillsP.textContent = "التقنيات والأدوات التي أستخدمها لإنشاء تجارب رقمية متميزة."
-  // section Projects 
-seProjects.innerHTML = `
+`;
+    // section Skills
+    seSkillsH2.textContent = " المهارات والتقنيات ";
+    seSkillsP.textContent =
+      "التقنيات والأدوات التي أستخدمها لإنشاء تجارب رقمية متميزة.";
+    // section Projects
+    seProjects.innerHTML = `
     <h2 class="section-title">المشاريع المميزة</h2>
     <p class="section-subtitle">
 مجموعة من المشاريع الحديثة المتميزة والمنتجات الرقمية.
@@ -296,9 +308,9 @@ seProjects.innerHTML = `
         </div>
       </div>
     </div>
-  `
-//  section Timeline
-seTimeline.innerHTML = `
+  `;
+    //  section Timeline
+    seTimeline.innerHTML = `
     <h2 class="section-title">المخطط الزمني للخبرة</h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -338,9 +350,9 @@ seTimeline.innerHTML = `
       </div>
     </div>
 
-`
-// section STATS
-seSTATS.innerHTML = `
+`;
+    // section STATS
+    seSTATS.innerHTML = `
     <h2 class="section-title">الإحصائيات</h2>
     <div class="stats-grid">
       <div class="stat-card glass">
@@ -360,9 +372,9 @@ seSTATS.innerHTML = `
         <p> تقنيات تم إتقانها</p>
       </div>
     </div>
-`
-// section contact
-secontact.innerHTML = `
+`;
+    // section contact
+    secontact.innerHTML = `
     <h2 class="section-title">تواصل معي</h2>
     <p class="section-subtitle">
 لنقم ببناء شيء مذهل معاً.
@@ -407,18 +419,18 @@ secontact.innerHTML = `
   </button>
   <p id="form-status" style="margin-top: 15px; display: none;"></p>
 </form>
-`
-// footer
-footer.innerHTML = `
+`;
+    // footer
+    footer.innerHTML = `
     <div class="logo">معرض ألاعمال.</div>
 
     <p>
 © 2026 جميع الحقوق محفوظة.
     </p>
-`
-  
-// EN
-  }else{  
+`;
+
+    // EN
+  } else {
     nav.style.direction = "ltr";
     SeOne.style.direction = "ltr";
     seOne.style.direction = "ltr";
@@ -429,21 +441,20 @@ footer.innerHTML = `
     secontact.style.direction = "ltr";
     footer.style.direction = "ltr";
 
-
-
-
     // header
-nav.innerHTML = ` 
-    <div class="logo">Portfolio.</div>
-    <ul>
-      <li><a href="#Skills" class="header-a">Skills</a></li>
-      <li><a href="#projects" class="header-a">Projects</a></li>
-      <li><a href="#Timeline" class="header-a">About</a></li>
-      <li><a href="#contact" class="header-a">Contact</a></li>
-    </ul>
-`
-// section one 
-seOne.innerHTML = `
+    logo.forEach((e) => {
+      e.textContent = "Portfolio";
+    });
+
+    headerText.forEach(() => {
+      headerText[0].textContent = "Skills";
+      headerText[1].textContent = "Projects";
+      headerText[2].textContent = "About";
+      headerText[3].textContent = "Contact";
+    });
+
+    // section one
+    seOne.innerHTML = `
     <div class="se-1-content">
 
       <h1>
@@ -491,9 +502,9 @@ seOne.innerHTML = `
       </div>
 
     </div>
-`
-// section Two  About
-seTwo.innerHTML = `
+`;
+    // section Two  About
+    seTwo.innerHTML = `
 
     <h2 class="section-title">About Me</h2>
     <p class="section-subtitle">
@@ -559,12 +570,13 @@ seTwo.innerHTML = `
         </div>
       </div>
     </div>
-    `
-    // section Skills 
-seSkillsH2.textContent = "Skills & Technologies"
-seSkillsP.textContent = "Technologies and tools I use to create premium digital experiences."
-  // section Projects 
-seProjects.innerHTML = `
+    `;
+    // section Skills
+    seSkillsH2.textContent = "Skills & Technologies";
+    seSkillsP.textContent =
+      "Technologies and tools I use to create premium digital experiences.";
+    // section Projects
+    seProjects.innerHTML = `
     <h2 class="section-title">Featured Projects</h2>
     <p class="section-subtitle">
       A collection of premium modern projects and digital products.
@@ -642,9 +654,9 @@ layout and user-friendly interface.
         </div>
       </div>
     </div>
-  `
-//  section Timeline
-seTimeline.innerHTML = `
+  `;
+    //  section Timeline
+    seTimeline.innerHTML = `
     <h2 class="section-title">Experience Timeline</h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -684,9 +696,9 @@ seTimeline.innerHTML = `
       </div>
     </div>
 
-`
-// section STATS
-seSTATS.innerHTML = `
+`;
+    // section STATS
+    seSTATS.innerHTML = `
     <h2 class="section-title">Statistics</h2>
     <div class="stats-grid">
       <div class="stat-card glass">
@@ -706,9 +718,9 @@ seSTATS.innerHTML = `
         <p>Technologies Mastered</p>
       </div>
     </div>
-`
-// section contact
-secontact.innerHTML = `
+`;
+    // section contact
+    secontact.innerHTML = `
     <h2 class="section-title">Contact Me</h2>
     <p class="section-subtitle">
       Let's build something amazing together.
@@ -754,56 +766,37 @@ secontact.innerHTML = `
   <p id="form-status" style="margin-top: 15px; display: none;"></p>
 </form>
 
-`
-// footer
-footer.innerHTML =`
+`;
+    // footer
+    footer.innerHTML = `
     <div class="logo">Portfolio.</div>
 
     <p>
       © 2026 All Rights Reserved.
     </p>
-`
+`;
   }
-// end of addEventListener
-})
-
-
-
-
-
-
-
-
-
-
-
-
+  // end of addEventListener
+});
 
 // funtion to show && hide btns [language , them]
 
-
-btnsetting.addEventListener("click",()=>{
-    btnsetting.style.transform += "rotate(180deg)";
-if(btnlanguage.style.opacity == 0){
-btnlanguage.style.opacity = 1;
-btnlanguage.style.pointerEvents = "auto";
-
-}else{
- btnlanguage.style.opacity = 0;
- btnlanguage.style.pointerEvents = "none";
-}
-})
-
-
-
-
-
+btnsetting.addEventListener("click", () => {
+  btnsetting.style.transform += "rotate(180deg)";
+  if (btnlanguage.style.opacity == 0) {
+    btnlanguage.style.opacity = 1;
+    btnlanguage.style.pointerEvents = "auto";
+  } else {
+    btnlanguage.style.opacity = 0;
+    btnlanguage.style.pointerEvents = "none";
+  }
+});
 // Sending Message  To My Email
 
 const formspreeUrl = "https://formspree.io/f/mkolejor";
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault(); 
+  event.preventDefault();
   const data = new FormData(form);
 
   status.style.display = "block";
@@ -814,21 +807,21 @@ form.addEventListener("submit", function (event) {
     method: "POST",
     body: data,
     headers: {
-      'Accept': 'application/json'
-    }
+      Accept: "application/json",
+    },
   })
-  .then(response => {
-    if (response.ok) {
-      status.textContent = "Thanks! Your message has been sent successfully.";
-      status.style.color = "green";
-      form.reset();
-    } else {
-      status.textContent = "Oops! There was a problem submitting your form.";
+    .then((response) => {
+      if (response.ok) {
+        status.textContent = "Thanks! Your message has been sent successfully.";
+        status.style.color = "green";
+        form.reset();
+      } else {
+        status.textContent = "Oops! There was a problem submitting your form.";
+        status.style.color = "red";
+      }
+    })
+    .catch((error) => {
+      status.textContent = "Oops! Network error, please try again.";
       status.style.color = "red";
-    }
-  })
-  .catch(error => {
-    status.textContent = "Oops! Network error, please try again.";
-    status.style.color = "red";
-  });
+    });
 });
