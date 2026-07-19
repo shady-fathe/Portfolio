@@ -140,7 +140,7 @@ btnlanguage.addEventListener("click", () => {
 <!-- btns socials -->
       <div class="socials">
 
-        <a href="github.com/Shadyfathe" class="glass">
+        <a href="https://github.com/shady-fathe" class="glass">
           <i class="fab fa-github"></i>
         </a>
 
@@ -275,8 +275,8 @@ btnlanguage.addEventListener("click", () => {
             <span class="tag">JavaScript</span>
           </div>
           <div class="project-buttons">
-            <a href="https://shadyfathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">العرض المباشر</a>
-            <a href="https://github.com/Shadyfathe/Accessories-store" class="btn btn-outline">جيتهاب</a>
+            <a href="https://shady-fathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">العرض المباشر</a>
+            <a href="https://github.com/shady-fathe/Accessories-store" class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -488,7 +488,7 @@ btnlanguage.addEventListener("click", () => {
 <!-- btns socials -->
       <div class="socials">
 
-        <a href="github.com/Shadyfathe" class="glass">
+        <a href="https://github.com/shady-fathe" class="glass">
           <i class="fab fa-github"></i>
         </a>
 
@@ -621,8 +621,8 @@ layout and user-friendly interface.
             <span class="tag">JavaScript</span>
           </div>
           <div class="project-buttons">
-            <a href="https://shadyfathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">Live Demo</a>
-            <a href="https://github.com/Shadyfathe/Accessories-store" class="btn btn-outline">GitHub</a>
+            <a href="https://shady-fathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">Live Demo</a>
+            <a href="https://github.com/shady-fathe/Accessories-store" class="btn btn-outline">GitHub</a>
           </div>
         </div>
       </div>
