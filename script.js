@@ -140,7 +140,7 @@ btnlanguage.addEventListener("click", () => {
 <!-- btns socials -->
       <div class="socials">
 
-        <a href="https://github.com/shady-fathe" class="glass">
+        <a href="https://github.com/shady-fathe" target="_blank" class="glass">
           <i class="fab fa-github"></i>
         </a>
 
@@ -254,7 +254,7 @@ btnlanguage.addEventListener("click", () => {
           </div>
           <div class="project-buttons">
             <a href="soon.html" target="_blank" class="btn btn-primary">العرض المباشر </a>
-            <a href="#" class="btn btn-outline">جيتهاب</a>
+            <a href="#" target="_blank" class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -276,7 +276,7 @@ btnlanguage.addEventListener("click", () => {
           </div>
           <div class="project-buttons">
             <a href="https://shady-fathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">العرض المباشر</a>
-            <a href="https://github.com/shady-fathe/Accessories-store" class="btn btn-outline">جيتهاب</a>
+            <a href="https://github.com/shady-fathe/Accessories-store" target="_blank"  class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -303,7 +303,7 @@ btnlanguage.addEventListener("click", () => {
           </div>
           <div class="project-buttons">
             <a href="soon.html" target="_blank" class="btn btn-primary">العرض المباشر</a>
-            <a href="#" class="btn btn-outline">جيتهاب</a>
+            <a href="#" target="_blank" class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -488,7 +488,7 @@ btnlanguage.addEventListener("click", () => {
 <!-- btns socials -->
       <div class="socials">
 
-        <a href="https://github.com/shady-fathe" class="glass">
+        <a href="https://github.com/shady-fathe" target="_blank" class="glass">
           <i class="fab fa-github"></i>
         </a>
 
