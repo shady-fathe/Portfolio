@@ -19,6 +19,10 @@ let seTimeline = document.querySelector("#Timeline");
 let TimelineItem = document.querySelectorAll(".timeline-item");
 let seSTATS = document.querySelector(".section-STATS");
 let secontact = document.querySelector("#contact");
+let titleContacth2 = document.querySelector("#contact h2");
+let titleContactP = document.querySelector("#contact p");
+let contactInfoTitle = document.querySelector(".contact-info h2");
+let ContactItemText = document.querySelectorAll(".contact-item-text");
 let footer = document.querySelector("footer");
 // function to add calss visible to Elements
 let observer = new IntersectionObserver((entries) => {
@@ -140,7 +144,7 @@ btnlanguage.addEventListener("click", () => {
 <!-- btns socials -->
       <div class="socials">
 
-        <a href="https://github.com/shady-fathe" target="_blank" class="glass">
+        <a href="https://github.com/shady-fathe"  target="_blank" class="glass">
           <i class="fab fa-github"></i>
         </a>
 
@@ -254,7 +258,7 @@ btnlanguage.addEventListener("click", () => {
           </div>
           <div class="project-buttons">
             <a href="soon.html" target="_blank" class="btn btn-primary">العرض المباشر </a>
-            <a href="#" target="_blank" class="btn btn-outline">جيتهاب</a>
+            <a href="#"  target="_blank" class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -276,7 +280,7 @@ btnlanguage.addEventListener("click", () => {
           </div>
           <div class="project-buttons">
             <a href="https://shady-fathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">العرض المباشر</a>
-            <a href="https://github.com/shady-fathe/Accessories-store" target="_blank"  class="btn btn-outline">جيتهاب</a>
+            <a href="https://github.com/shady-fathe/Accessories-store"  target="_blank" class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -303,7 +307,7 @@ btnlanguage.addEventListener("click", () => {
           </div>
           <div class="project-buttons">
             <a href="soon.html" target="_blank" class="btn btn-primary">العرض المباشر</a>
-            <a href="#" target="_blank" class="btn btn-outline">جيتهاب</a>
+            <a href="#"  target="_blank" class="btn btn-outline">جيتهاب</a>
           </div>
         </div>
       </div>
@@ -374,52 +378,22 @@ btnlanguage.addEventListener("click", () => {
     </div>
 `;
     // section contact
-    secontact.innerHTML = `
-    <h2 class="section-title">تواصل معي</h2>
-    <p class="section-subtitle">
-لنقم ببناء شيء مذهل معاً.
-    </p>
-    <div class="contact-container">
-      <div class="contact-info glass">
-        <h2>تواصل الآن</h2>
-        <div class="item">
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <h4>البريد الإلكتروني</h4>
-            <p>shadyfathe0@gmail.com</p>
-          </div>
-        </div>
-        <div class="item">
-          <i class="fa-solid fa-phone"></i>
-          <div>
-            <h4>الهاتف</h4>
-            <p>+201030263353</p>
-          </div>
-        </div>
-        <div class="item">
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <h4>الموقع</h4>
-            <p>مصر , الجيزه</p>
-          </div>
-        </div>
-      </div>
-<form id="my-contact-form" class="contact-form glass">
-  <div class="input-group">
-    <input type="text" name="name" placeholder="اسمك" required>
-  </div>
-  <div class="input-group">
-    <input type="email" name="email" placeholder="بريدك" required>
-  </div>
-  <div class="input-group">
-    <textarea name="message" placeholder="رسالتك" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">
-   ارسال
-  </button>
-  <p id="form-status" style="margin-top: 15px; display: none;"></p>
-</form>
-`;
+titleContacth2.textContent = "تواصل معي"
+titleContactP.textContent ="لنقم ببناء شيء مذهل معاً."
+contactInfoTitle.textContent = "تواصل الآن"
+ContactItemText.forEach(()=>{
+ContactItemText[0].children[0].textContent = "البريد"
+ContactItemText[1].children[0].textContent = "الهاتف"
+ContactItemText[1].children[1].style.direction = "ltr"
+ContactItemText[2].children[0].textContent = "الموقع"
+ContactItemText[2].children[1].textContent = "مصر , الجيزه"
+})
+// form texts
+document.querySelector("[placeholder='Your Name']").setAttribute("placeholder","اسمك")
+document.querySelector("[placeholder='Your Email']").setAttribute("placeholder","بريدك")
+document.querySelector("[placeholder='Your Message']").setAttribute("placeholder","رسالتك")
+document.querySelector("[type='submit']").textContent = "ارسال"
+
     // footer
     footer.innerHTML = `
     <div class="logo">معرض ألاعمال.</div>
@@ -488,7 +462,7 @@ btnlanguage.addEventListener("click", () => {
 <!-- btns socials -->
       <div class="socials">
 
-        <a href="https://github.com/shady-fathe" target="_blank" class="glass">
+        <a href="https://github.com/shady-fathe"  target="_blank" class="glass">
           <i class="fab fa-github"></i>
         </a>
 
@@ -601,7 +575,7 @@ An interactive and fully responsive clothing store featuring category filtering,
           </div>
           <div class="project-buttons">
             <a href="soon.html" target="_blank" class="btn btn-primary">Live Demo</a>
-            <a href="#" class="btn btn-outline">GitHub</a>
+            <a href="#"  target="_blank"  class="btn btn-outline">GitHub</a>
           </div>
         </div>
       </div>
@@ -622,7 +596,7 @@ layout and user-friendly interface.
           </div>
           <div class="project-buttons">
             <a href="https://shady-fathe.github.io/Accessories-store/" target="_blank" class="btn btn-primary">Live Demo</a>
-            <a href="https://github.com/shady-fathe/Accessories-store" class="btn btn-outline">GitHub</a>
+            <a href="https://github.com/shady-fathe/Accessories-store"  target="_blank" class="btn btn-outline">GitHub</a>
           </div>
         </div>
       </div>
@@ -649,7 +623,7 @@ layout and user-friendly interface.
           </div>
           <div class="project-buttons">
             <a href="soon.html" target="_blank" class="btn btn-primary">Live Demo</a>
-            <a href="#" class="btn btn-outline">GitHub</a>
+            <a href="#"  target="_blank" class="btn btn-outline">GitHub</a>
           </div>
         </div>
       </div>
@@ -720,53 +694,21 @@ layout and user-friendly interface.
     </div>
 `;
     // section contact
-    secontact.innerHTML = `
-    <h2 class="section-title">Contact Me</h2>
-    <p class="section-subtitle">
-      Let's build something amazing together.
-    </p>
-    <div class="contact-container">
-      <div class="contact-info glass">
-        <h2>Get In Touch</h2>
-        <div class="item">
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <h4>Email</h4>
-            <p>shadyfathe0@gmail.com</p>
-          </div>
-        </div>
-        <div class="item">
-          <i class="fa-solid fa-phone"></i>
-          <div>
-            <h4>Phone</h4>
-            <p>+201030263353</p>
-          </div>
-        </div>
-        <div class="item">
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <h4>Location</h4>
-            <p>Giza, Egypt</p>
-          </div>
-        </div>
-      </div>
-<form id="my-contact-form" class="contact-form glass">
-  <div class="input-group">
-    <input type="text" name="name" placeholder="Your Name" required>
-  </div>
-  <div class="input-group">
-    <input type="email" name="email" placeholder="Your Email" required>
-  </div>
-  <div class="input-group">
-    <textarea name="message" placeholder="Your Message" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">
-    Send Message
-  </button>
-  <p id="form-status" style="margin-top: 15px; display: none;"></p>
-</form>
-
-`;
+titleContacth2.textContent = "Contact Me"
+titleContactP.textContent ="Let's build something amazing together."
+contactInfoTitle.textContent = "Get In Touch"
+ContactItemText.forEach(()=>{
+ContactItemText[0].children[0].textContent = "Email"
+ContactItemText[1].children[0].textContent = "Phone"
+ContactItemText[1].children[1].style.direction = "ltr"
+ContactItemText[2].children[0].textContent = "Location"
+ContactItemText[2].children[1].textContent = "Giza, Egypt"
+})
+// form texts
+document.querySelector("[placeholder='اسمك']").setAttribute("placeholder","Your Name")
+document.querySelector("[placeholder='بريدك']").setAttribute("placeholder","Your Email")
+document.querySelector("[placeholder='رسالتك']").setAttribute("placeholder","Your Message")
+document.querySelector("[type='submit']").textContent = "Send Massage"
     // footer
     footer.innerHTML = `
     <div class="logo">Portfolio.</div>
